@@ -28,13 +28,13 @@ RFC 6528, Defending against Sequence Number Attacks, on ISN randomization
 
 ## The ISN randomness result
 
-Captured 10 SYN packets across separate connections. ISNs were scattered across the full range with no incrementing pattern or fixed delta between them, consistent with proper OS level ISN randomization.
+I captured 10 SYN packets across separate connections. The ISNs were scattered across the full range with no incrementing pattern or fixed delta (change) between them, consistent with proper OS level ISN randomization.
 
 ![ISN Randomness Chart](isn_chart.png)
 
 ## The source port result
 
-Captured the source port for the same 10 connections. Unlike the ISNs, the source ports came out linear, incrementing by 1 with each new connection. This is not a mistake in the script, it is an accurate reflection of how the OS allocated ephemeral ports during this test, and it is exactly the weakness RFC 6056 was written to address.
+I also captured the source port for the same 10 connections. Unlike the ISNs, the source ports came out linear, incrementing by 1 with each new connection. This was an interesting finding because although it's hard to guess the first source port opened, the rest were linear and predictable. It is an accurate reflection of how an OS allocates ephemeral ports, and it is exactly the weakness RFC 6056 was written to address.
 
 ![Source Port Chart](source_port_chart.png)
 
