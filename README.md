@@ -2,11 +2,11 @@
 
 A simple TCP echo server and client, plus a script that captures and visualizes TCP Initial Sequence Numbers (ISNs) and source ports, to demonstrate two of the mechanisms that make blind TCP spoofing difficult.
 
-## Why I built this
+## Objective
 
 I wanted to actually understand TCP mechanics (seq/ack numbers, sliding window, handshake) by building something with it, instead of just reading about it. Then I extended it into a small security demo, demonstrating why blind TCP spoofing attacks, like the 1994 Mitnick-Shimomura attack, do not work against modern systems.
 
-## What's in here
+## Python Scripts
 
 - `server.py`, TCP echo server (bind, listen, accept, recv, send, close, in a loop)
 - `client.py`, TCP client that connects, sends a message, receives the echo
@@ -38,8 +38,7 @@ I also captured the source port for the same 10 connections. Unlike the ISNs, th
 
 ![Source Port Chart](source_port_chart.png)
 
-## Why this matters
-
+## Interesting facts observed through testing about TCP as a protocol
 This project demonstrates two of the independent defenses against blind TCP spoofing, described in the following RFCs.
 
 RFC 6056, Recommendations for Transport-Protocol Port Randomization, on source port randomization:
